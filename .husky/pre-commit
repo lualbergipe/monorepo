@@ -15,4 +15,4 @@ fi
 
 # If only files in PopupsProvider have changed, run the tests
 echo "Running tests for PopupsProvider..."
-npx lint-staged
+npx jest --config ./jest.config.js --passWithNoTests
