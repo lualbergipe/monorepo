@@ -6,6 +6,7 @@ import usePopup from '@apps/main-app/app/hooks/usePopup/UsePopup';
 const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonProps) => {
   const { addPopup } = usePopup();
 
+
   const handleClick = () => {
     addPopup({
       id, title, description, defaultPosition,
