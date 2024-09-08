@@ -15,4 +15,4 @@ fi
 
 # If only files in PopupsProvider have changed, run the tests
 echo "Running tests for PopupsProvider..."
-npm run test
+npm run test --passWithNoTests --verbose
