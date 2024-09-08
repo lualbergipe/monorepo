@@ -4,7 +4,6 @@
   "scope": "@popup-manage",
     "ignore": [
       "**/node_modules/**",
-      "**/lib/**",
       "**/dist/**"
     ],
   "npm": {
