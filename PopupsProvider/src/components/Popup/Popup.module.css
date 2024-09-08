@@ -1,0 +1,40 @@
+
+.content__popup{
+  border: 1px solid #000;
+  background-color: #fff;
+  resize: both;
+  overflow: hidden;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 10px 10px 0 0;
+}
+.header__popup{
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #000;
+  height: 30px;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header__popup h2{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.header__popup span{
+  color: #000;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.description__popup{
+  padding: 5px;
+}
