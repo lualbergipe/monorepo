@@ -6,8 +6,6 @@ import usePopupStore from '@apps/main-app/store/popupStore';
 import { PopupProps } from '../../types/types';
 
 
-
-// Contenedor para mostrar los popups
 export const Popup = memo(({ containerSize }: PopupProps) => {
   const popups = usePopupStore(state => state.popups);
   const closePopup = usePopupStore(state => state.removePopup);
