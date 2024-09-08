@@ -5,6 +5,8 @@ import { IoClose } from "react-icons/io5";
 import usePopupStore from '@apps/main-app/store/popupStore';
 import { PopupProps } from '../../types/types';
 
+
+
 export const Popup = memo(({ containerSize }: PopupProps) => {
   const popups = usePopupStore(state => state.popups);
   const closePopup = usePopupStore(state => state.removePopup);
