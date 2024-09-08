@@ -1,0 +1,20 @@
+{
+  "packagesFolder": ["./apps", "./PopupsProvider"],
+  "deepLevel": 2,
+  "scope": "@popup-manage",
+    "ignore": [
+      "**/node_modules/**",
+      "**/lib/**",
+      "**/dist/**"
+    ],
+  "npm": {
+    "access": "public"
+  },
+  "commit": true,
+  "push": true,
+  "conventionalCommits": true,
+  "autoStage": true,
+  "mainBranch": "main",
+  "maintainBranches": true,
+  "branches": ["main", "dev"]
+}
