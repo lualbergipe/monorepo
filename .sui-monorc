@@ -1,5 +1,5 @@
 {
-  "packagesFolder": ["./apps", "./PopupsProvider"],
+  "packagesFolder": ["./apps/main-app", "./PopupsProvider"],
   "deepLevel": 2,
   "scope": "@popup-manage",
     "ignore": [

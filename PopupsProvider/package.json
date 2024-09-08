@@ -1,5 +1,5 @@
 {
-  "name": "@popup-manage/PopupsProvider",
+  "name": "@popup-manage/popupsprovider",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -8,5 +8,12 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
-  }
+  },
+  "description": "This library was generated with [Nx](https://nx.dev).",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
