@@ -10,7 +10,7 @@
     "start": "nx run main-app:serve",
     "test": "jest",
     "commit": "sui-mono commit",
-    "prepare": "husky"
+    "prepare": "husky init"
   },
   "private": true,
   "dependencies": {
