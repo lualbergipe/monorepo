@@ -26,13 +26,11 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
         newPos.y = containerSize.height - newPos.height -1;
         updated = true;
       }
-
       if (updated) {
         movePopup(popup.id, { x: newPos.x, y: newPos.y });
       }
     });
   }, [containerSize, popups, movePopup]);
-
   /**
    * Con esta funcion lo que hago es validar si el popup realmente tiene algun cambio para ser renderizado, de esta manera
    * Evitamos re-renderizados innecesarios
