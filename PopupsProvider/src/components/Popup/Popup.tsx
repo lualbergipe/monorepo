@@ -75,7 +75,4 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
       </>
   );
 }) ;
-
-
-
 export default { Popup };
