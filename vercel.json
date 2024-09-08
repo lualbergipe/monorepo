@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "/package.json",
+      "src": "/aps/main-app/src/main.tsx",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "apps/main-app/$1" }
+    { "src": "/(.*)", "dest": "apps/main-app/src/main.tsx", "methods": ["GET"] }
   ]
 }
