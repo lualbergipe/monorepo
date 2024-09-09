@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "start": "nx run main-app:serve",
+    "test": "jest",
+    "commit": "sui-mono commit",
+    "prepare": "husky init",
+    "build": "nx build main-app"
   },
   "keywords": [],
   "author": "",
