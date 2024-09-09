@@ -2,7 +2,7 @@
 import React from 'react';
 import {useState, useRef} from 'react';
 import style from './app.module.css'
-import CloseButton from './components/CloseButton';
+import CloseButton from './components/CloseButton/CloseButton';
 import Modal from './components/Modal/Modal';
 import ModalForm from './components/Modal/ModalForm';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,6 +10,8 @@ import { Popup } from '@lib/PopupsProvider/components/Popup/Popup';
 import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 import useResizeObserver from '@lib/PopupsProvider/hooks/UseResizeObserver/useResizeObserver';
 import { PopupButtonA, PopupButtonB } from '@lib/PopupsProvider/lib/PopupsProvider';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 
 export function App() {
@@ -30,12 +32,11 @@ export function App() {
   };
 
   return (
-    <div>
-      <div className={style.header}>
-      <h1>Gestión de Tareas</h1>
-      <CloseButton/>
-      </div>
+    <div className={style.content} >
+      <Header/>
+      <div className={style.container}>
       <div ref={containerRef} className={style.container__popup}>
+        <div className={style.container__btn} style={{flexDirection: containerSize && containerSize.width < 410 ? 'column' : 'row'}}>
         <PopupButtonA
             title="Popup A"
             description="Tarea del boton A"
@@ -46,13 +47,16 @@ export function App() {
              description="Tarea del boton B"
             defaultPosition={{ x: 100, y: 100, width: 350, height: 200 }}
           />
+          <button className={style.btn__popup} onClick={openModal}>Popup personalizado</button>
+        </div>
         <Popup containerSize={containerSize}/>
-        <button onClick={openModal}>Abrir Popup A</button>
-      <Modal isOpen={modalIsOpen} onClose={closeModal}>
-        <h1>Crea tu popup personalizada</h1>
-        <ModalForm isOpen={modalIsOpen} onClose={closeModal} onSubmit={handleFormSubmit}/>
-      </Modal>
+        <Modal isOpen={modalIsOpen} onClose={closeModal}>
+          <h1>Crea tu popup personalizada</h1>
+          <ModalForm isOpen={modalIsOpen} onClose={closeModal} onSubmit={handleFormSubmit}/>
+        </Modal>
       </div>
+      </div>
+      <Footer/>
     </div>
   );
 }

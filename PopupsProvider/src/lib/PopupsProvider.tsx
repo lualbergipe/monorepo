@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { PopupButtonProps } from '../types/types';
 import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
-
+import style from './PopupsProvider.module.css'
 const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonProps) => {
   const { addPopup } = usePopup();
 
@@ -14,7 +14,7 @@ const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonPro
     });
   };
   return (
-    <button onClick={handleClick}>Abrir {title}</button>
+    <button className={style.btn__popup} onClick={handleClick}>Abrir {title}</button>
   )
 }
 export const PopupButtonA = (props: Omit<PopupButtonProps, 'id' >) => <PopupButtons id={uuidv4()}  {...props} />;

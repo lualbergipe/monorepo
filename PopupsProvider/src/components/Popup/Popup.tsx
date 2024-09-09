@@ -32,8 +32,11 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
    **/
   const handleDragStop: DraggableEventHandler = useCallback((e, data) => {
     const id = data.node.getAttribute('data-id');
+    const gridSize = 10;
     if (id) {
-      movePopup(id, { x: data.x, y: data.y });
+      const snapX = Math.round(data.x / gridSize) * gridSize;
+      const snapY = Math.round(data.y / gridSize) * gridSize;
+      movePopup(id, { x: snapX, y: snapY });
     }
   }, [movePopup]);
   return (
