@@ -6,12 +6,6 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project PopupsProvider --web",
   "targets": {
-    "build": {
-      "executor": "@nrwl/vite:build",
-      "options": {
-        "outputPath": "dist/apps/main-app",
-        "configFile": "apps/main-app/vite.config.ts"
-      }
-    }
+
   }
 }
