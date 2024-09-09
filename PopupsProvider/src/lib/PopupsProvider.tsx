@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { PopupButtonProps } from '../types/types';
-import usePopup from '@apps/main-app/app/hooks/usePopup/UsePopup';
+import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 
 const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonProps) => {
   const { addPopup } = usePopup();

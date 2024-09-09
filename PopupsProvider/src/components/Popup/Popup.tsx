@@ -2,14 +2,12 @@ import React, {memo, useCallback, useEffect} from 'react';
 import Draggable, {DraggableEventHandler} from 'react-draggable';
 import style from './Popup.module.css'
 import { IoClose } from "react-icons/io5";
-import usePopupStore from '@apps/main-app/store/popupStore';
 import { PopupProps } from '../../types/types';
+import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 
 export const Popup = memo(({ containerSize }: PopupProps) => {
-  const popups = usePopupStore(state => state.popups);
-  const closePopup = usePopupStore(state => state.removePopup);
-  const movePopup = usePopupStore(state => state.movePopup);
-  const bringToFront = usePopupStore(state => state.bringToFront);
+
+  const {bringToFront, movePopup, removePopup, popups } = usePopup();
 
   useEffect(() => {
     popups.forEach(popup => {
@@ -61,7 +59,7 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
               <h2>{popup.title}</h2>
               <IoClose
                 color='#fff'
-                onClick={() => closePopup(popup.id)}/>
+                onClick={() => removePopup(popup.id)}/>
             </div>
             <div className={style.description__popup}>
             <span>{popup.description}</span>

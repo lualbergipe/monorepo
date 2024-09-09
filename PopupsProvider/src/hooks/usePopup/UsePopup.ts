@@ -1,4 +1,4 @@
-import usePopupStore from "@apps/main-app/store/popupStore";
+import usePopupStore from "@lib/PopupsProvider/store/popupStore";
 
 const usePopup = () => {
   const {

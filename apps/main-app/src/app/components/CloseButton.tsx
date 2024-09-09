@@ -1,5 +1,5 @@
+import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 import React from 'react';
-import usePopup from '../hooks/usePopup/UsePopup';
 
 const CloseButton = () => {
   const { clearPopups } = usePopup();

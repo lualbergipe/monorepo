@@ -3,13 +3,13 @@ import React from 'react';
 import {useState, useRef} from 'react';
 import style from './app.module.css'
 import CloseButton from './components/CloseButton';
-import { PopupButtonA, PopupButtonB } from '../../../../PopupsProvider/src/lib/PopupsProvider';
 import Modal from './components/Modal/Modal';
 import ModalForm from './components/Modal/ModalForm';
 import { v4 as uuidv4 } from 'uuid';
-import useResizeObserver from './hooks/UseResizeObserver/useResizeObserver';
 import { Popup } from '@lib/PopupsProvider/components/Popup/Popup';
-import usePopup from './hooks/usePopup/UsePopup';
+import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
+import useResizeObserver from '@lib/PopupsProvider/hooks/UseResizeObserver/useResizeObserver';
+import { PopupButtonA, PopupButtonB } from '@lib/PopupsProvider/lib/PopupsProvider';
 
 
 export function App() {
