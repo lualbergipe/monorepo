@@ -51,7 +51,6 @@ export function App() {
         </div>
         <Popup containerSize={containerSize}/>
         <Modal isOpen={modalIsOpen} onClose={closeModal}>
-          <h1>Crea tu popup personalizada</h1>
           <ModalForm isOpen={modalIsOpen} onClose={closeModal} onSubmit={handleFormSubmit}/>
         </Modal>
       </div>
