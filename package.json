@@ -11,7 +11,7 @@
     "test": "jest",
     "commit": "sui-mono commit",
     "prepare": "husky init",
-    "build": "nx build main-app"
+    "build": "npm install nx --no-save && nx build main-app"
   },
   "private": true,
   "dependencies": {
