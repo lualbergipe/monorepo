@@ -10,7 +10,8 @@
     "start": "nx run main-app:serve",
     "test": "jest",
     "commit": "sui-mono commit",
-    "prepare": "husky init"
+    "prepare": "husky init",
+    "build": "nx build main-app --openssl-legacy-provider build"
   },
   "private": true,
   "dependencies": {

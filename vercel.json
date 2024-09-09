@@ -7,6 +7,9 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "apps/main-app/src/main.tsx", "methods": ["GET"] }
+    {
+       "src": "/(.*)",
+      "dest": "/apps/main-app/$1"
+    }
   ]
 }
