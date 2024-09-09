@@ -1,4 +1,4 @@
-name: CI Library Components
+name: CI Library Components & Main App Deploy
 
 on:
   push:
@@ -11,15 +11,20 @@ on:
       - dev
     paths:
       - 'PopupsProvider/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/main-app/**'  # Solo afectará los cambios en la carpeta main-app
 
 permissions:
   contents: read
   actions: read
 
 jobs:
-  test:
+  test-components:
     runs-on: ubuntu-latest
-
+    if: github.ref == 'refs/heads/dev'  # Solo ejecuta para la rama dev
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,12 +43,43 @@ jobs:
         env:
           CI: true
 
-
       - name: Run sui-mono tasks
         run: npx sui-mono check
-
 
       - name: Lint code
         run: npm run lint
 
+  deploy-main-app:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Solo ejecuta para la rama main
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Check if main-app was affected
+        id: affected
+        run: |
+          npx nx affected --target=build --base=origin/main --projects=main-app || echo "false" > affected.txt
+          if grep -Fxq "false" affected.txt; then
+            echo "No changes in main-app"
+            exit 0
+          else
+            echo "Changes detected in main-app"
+          fi
+        continue-on-error: true
+        shell: bash
+
+      - name: Deploy to Vercel
+        if: success()
+        run: |
+          npm install -g vercel
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
