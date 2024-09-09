@@ -56,6 +56,32 @@
       "dependsOn": ["^build"]
     }
   },
+  "projects": {
+    "main-app": {
+      "targets": {
+        "build": {
+          "executor": "@nx/vite:build",
+          "outputs": ["{workspaceRoot}/dist/apps/main-app"],
+          "options": {
+            "outputPath": "dist/apps/main-app",
+            "tsConfig": "apps/main-app/tsconfig.app.json",
+            "assets": ["apps/main-app/src/assets"],
+            "index": "apps/main-app/src/index.html",
+            "main": "apps/main-app/src/main.tsx",
+            "polyfills": "apps/main-app/src/polyfills.ts",
+            "styles": ["apps/main-app/src/styles.css"]
+          }
+        },
+        "serve": {
+          "executor": "@nx/vite:serve",
+          "options": {
+            "outputPath": "dist/apps/main-app",
+            "index": "apps/main-app/src/index.html"
+          }
+        }
+      }
+    }
+  },
   "generators": {
     "@nx/react": {
       "application": {
