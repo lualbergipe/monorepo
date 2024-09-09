@@ -1,82 +1,73 @@
-# PopupManage
+# Monorepo para Popup Management y Main App
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Este proyecto es un **monorepo** que contiene dos componentes principales:
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+- **Main App**: Aplicación principal ubicada en `apps/main-app`.
+- **PopupsProvider**: Librería de componentes para la gestión de popups, ubicada en `libs/PopupsProvider`.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Estructura del proyecto
 
-## Finish your CI setup
+La estructura del proyecto sigue las convenciones de un monorepo organizado con Nx:
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/ATzUPyCU7J)
+├── apps/
+│   └── main-app/         # Aplicación principal construida en React
+├── PopupsProvider/
+│   └── src/ 
+        └── lib/          # Librería de componentes de Popup
+├── dist/                 # Carpeta de salida generada por el build
+├── nx.json               # Configuración de Nx
+├── package.json          # Dependencias y scripts del monorepo
+└── .github/
+│   └── ci.yml 
 
+               # Pipeline de CI/CD con GitHub Actions
 
-## Run tasks
+## Scripts disponibles
 
-To run the dev server for your app, use:
+En este proyecto, puedes utilizar los siguientes comandos desde la raíz del repositorio:
 
-```sh
-npx nx serve popup-manage
-```
+### `npm start`
+Inicia el servidor de desarrollo para la **Main App**.
 
-To create a production bundle:
+### `npm test`
+Ejecuta las pruebas unitarias con **Jest**.
 
-```sh
-npx nx build popup-manage
-```
-
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project popup-manage
-```
-        
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### `npm run build`
+Compila la aplicación principal **Main App**.
 
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Implementación de CI/CD
 
-## Install Nx Console
+### Test Components
+Cada vez que se realiza un **commit** y **push** en la rama `dev` y afecta los archivos dentro de `PopupsProvider`, se ejecutan las pruebas unitarias de **Jest**, en primera instancia se ejecutan en la terminal cuando se hace el commit, esto gracias a **husky** y la configuracion de pre-commit, en segunda instancia cuando se hace el push se ejecutan nuevamente gracias a las actions de **git hub**
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### Deploy Main App
+Cada vez que se realiza un **push** a la rama `main`, si los archivos dentro de `apps/main-app` son afectados, se ejecuta el proceso de despliegue a **Vercel** utilizando las configuraciones establecidas en las actions de **git hub**
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Configuración del deploy en Vercel
 
-## Useful links
+Para realizar el despliegue en Vercel:
 
-Learn more:
+1. Necesitas configurar los secretos en GitHub Actions, incluyendo `VERCEL_TOKEN`, `VERCEL_PROJECT_ID`, y `VERCEL_ORG_ID`.
+2. Configura el archivo `ci.yml` para que el despliegue solo se ejecute cuando los cambios afecten la aplicación principal en la rama `main`.
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Configuración de variables de entorno
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Debes agregar las siguientes variables de entorno en tu repositorio o en las configuraciones de CI:
+
+- `VERCEL_TOKEN`: Token de acceso para desplegar en Vercel.
+- `VERCEL_PROJECT_ID`: ID del proyecto en Vercel.
+- `VERCEL_ORG_ID`: ID de la organización en Vercel.
+
+## Requisitos previos
+
+- **Node.js** versión 16 o superior.
+- **Nx** como herramienta de monorepo.
+- **Vercel CLI** para despliegue a producción.
+
+## Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/lualbergipe/monorepo
