@@ -4,6 +4,7 @@ import { PopupButtonProps } from '../types/types';
 import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 import style from './PopupsProvider.module.css'
 const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonProps) => {
+
   const { addPopup } = usePopup();
 
   const handleClick = () => {
