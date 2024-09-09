@@ -7,6 +7,7 @@ const PopupButtons = ({ id, title, description, defaultPosition }:PopupButtonPro
 
   const { addPopup } = usePopup();
 
+
   const handleClick = () => {
     addPopup({
       id, title, description, defaultPosition,
