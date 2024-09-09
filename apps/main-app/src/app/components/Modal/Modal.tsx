@@ -4,9 +4,6 @@ import style from './Modal.module.css'
 import { ModalProps } from '@apps/main-app/types/types';
 import { IoClose } from "react-icons/io5";
 
-
-
-
 const Modal = ({ isOpen, onClose, children }:ModalProps) => {
   if (!isOpen) return null;
 
