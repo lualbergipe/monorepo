@@ -61,9 +61,9 @@
       "targets": {
         "build": {
           "executor": "@nx/vite:build",
-          "outputs": ["{workspaceRoot}/dist/apps/main-app"],
+          "outputs": ["{workspaceRoot}/dist"],
           "options": {
-            "outputPath": "dist/apps/main-app",
+            "outputPath": "dist",
             "tsConfig": "apps/main-app/tsconfig.app.json",
             "assets": ["apps/main-app/src/assets"],
             "index": "apps/main-app/index.html",
@@ -75,7 +75,7 @@
         "serve": {
           "executor": "@nx/vite:serve",
           "options": {
-            "outputPath": "dist/apps/main-app",
+            "outputPath": "dist",
             "index": "apps/main-app/src/index.html"
           }
         }
