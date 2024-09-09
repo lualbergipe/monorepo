@@ -4,18 +4,15 @@ on:
   push:
     branches:
       - dev
+      - main
     paths:
       - 'PopupsProvider/**'
+      - 'apps/main-app/**'  # Solo afecta a los cambios en 'main-app'
   pull_request:
     branches:
       - dev
     paths:
       - 'PopupsProvider/**'
-  push:
-    branches:
-      - main
-    paths:
-      - 'apps/main-app/**'  # Solo afectará los cambios en la carpeta main-app
 
 permissions:
   contents: read
@@ -75,11 +72,12 @@ jobs:
           else
             echo "Changes detected in main-app"
           fi
-        continue-on-error: true
         shell: bash
 
       - name: Deploy to Vercel
-        if: success()
+        if: steps.affected.outcome == 'success'
         run: |
           npm install -g vercel
           vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
