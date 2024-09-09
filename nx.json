@@ -61,7 +61,7 @@
       "targets": {
         "build": {
           "executor": "@nx/vite:build",
-          "outputs": ["{workspaceRoot}/dist"],
+          "outputs": ["{workspaceRoot}/dist/apps/main-app"],
           "options": {
             "outputPath": "dist/apps/main-app",
             "tsConfig": "apps/main-app/tsconfig.app.json",
