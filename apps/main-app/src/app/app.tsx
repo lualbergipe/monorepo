@@ -23,7 +23,6 @@ export function App() {
   const {addPopup  } = usePopup();
 
 
-
   const handleFormSubmit = (title: string, description: string, dimensions: { x: number, y: number, width: number, height: number }) => {
     addPopup({
       id:uuidv4(), title, description, defaultPosition:dimensions,
