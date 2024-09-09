@@ -63,7 +63,7 @@
           "executor": "@nx/vite:build",
           "outputs": ["{workspaceRoot}/dist"],
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/apps/main-app",
             "tsConfig": "apps/main-app/tsconfig.app.json",
             "assets": ["apps/main-app/src/assets"],
             "index": "apps/main-app/index.html",
@@ -75,7 +75,7 @@
         "serve": {
           "executor": "@nx/vite:serve",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/apps/main-app",
             "index": "apps/main-app/src/index.html"
           }
         }
