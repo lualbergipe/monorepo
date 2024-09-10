@@ -9,7 +9,7 @@ Este proyecto es un **monorepo** que contiene dos componentes principales:
 
 La estructura del proyecto sigue las convenciones de un monorepo organizado con Nx:
 
-|--------------------------|--------------------------------------------------------------------------------|
+
 | **Ruta**                | **Descripción**                                                                 |
 |--------------------------|--------------------------------------------------------------------------------|
 | `apps/main-app/`         | Contiene la aplicación principal de React.                                     |
@@ -18,14 +18,14 @@ La estructura del proyecto sigue las convenciones de un monorepo organizado con 
 | `nx.json`                | Archivo de configuración para Nx, que gestiona los proyectos en el monorepo.   |
 | `package.json`           | Archivo que maneja las dependencias y los scripts del proyecto.                |
 | `.github/ci.yml`         | Configuración de GitHub Actions para integración continua.                     |
-|--------------------------|--------------------------------------------------------------------------------|
 
-## Hooks personalizados
 
-# usePopup - Hook para gestión de popups
+# Hooks personalizados
+
+## usePopup - Hook para gestión de popups
 Este hook personalizado es el núcleo de la gestión de popups en la aplicación. Permite agregar popups con características como título, descripción y posiciones por defecto, o personalizadas. Es utilizado tanto en la aplicación principal como en la librería de componentes PopupsProvider y encapsula todos los metodos de nuestro estado global facilitando asi el llamado, la gestión y el rendimiento de la aplicación.
 
-# useResizeObserver - Hook para gestionar el tamaño de los popups
+## useResizeObserver - Hook para gestionar el tamaño de los popups
 El hook useResizeObserver permite observar cambios en el tamaño de un elemento HTML y devuelve el ancho y la altura actuales del elemento observado. Es útil para ajustar el tamaño de los popups en tiempo real cuando la ventana del navegador cambia de tamaño o cuando el contenido del popup se modifica dinámicamente.
 
 ## Estado global con Zustand
