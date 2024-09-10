@@ -7,7 +7,7 @@
 }
 
 .content__popup{
-  transition: transform 0.2s ease-in-out; /* Suaviza el movimiento del popup */
+  transition: transform 0.2s ease-in-out;
   background-color: #fbee9d;
   resize: both;
   overflow: hidden;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './ClseButton.module.css';  // Asegúrate de usar el nombre correcto del archivo de estilos
+import style from './ClseButton.module.css';
 import usePopup from '@lib/PopupsProvider/hooks/usePopup/UsePopup';
 
 const AnimatedButton = () => {

@@ -2,7 +2,6 @@
 import React from 'react';
 import {useState, useRef} from 'react';
 import style from './app.module.css'
-import CloseButton from './components/CloseButton/CloseButton';
 import Modal from './components/Modal/Modal';
 import ModalForm from './components/Modal/ModalForm';
 import { v4 as uuidv4 } from 'uuid';

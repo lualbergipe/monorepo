@@ -1,4 +1,3 @@
-// Modal.tsx
 import React from 'react';
 import style from './Modal.module.css'
 import { ModalProps } from '@apps/main-app/types/types';

@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "nx run main-app:serve",
-    "test": "jest",
+    "test": "jest PopupsProvider/src/store/usePopupStore.test.ts",
     "commit": "sui-mono commit",
     "prepare": "husky init",
     "build": "npx nx build main-app"

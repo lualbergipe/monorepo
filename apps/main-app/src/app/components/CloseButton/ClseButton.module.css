@@ -147,7 +147,6 @@
 }
 
 .button_del.animating {
-  /* cursor: not-allowed; */
   opacity: 0.75;
 }
 

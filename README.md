@@ -3,7 +3,7 @@
 Este proyecto es un **monorepo** que contiene dos componentes principales:
 
 - **Main App**: Aplicación principal ubicada en `apps/main-app`.
-- **PopupsProvider**: Librería de componentes para la gestión de popups, ubicada en `libs/PopupsProvider`.
+- **PopupsProvider**: Librería de componentes para la gestión de popups, ubicada en `PopupsProvider/src/lib`.
 
 ## Estructura del proyecto
 

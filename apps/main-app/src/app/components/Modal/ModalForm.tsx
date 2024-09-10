@@ -8,14 +8,13 @@ const ModalForm = ({ isOpen, onClose, onSubmit }:ModalFormProps) => {
   const [description, setDescription] = useState('');
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
-  const [width, setWidth] = useState(100); // Valor inicial predeterminado para el ancho
+  const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(100);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Validar que todos los campos estén llenos
     if (!title.trim() || !description.trim() || x <= 0 || y <= 0 || width <= 0 || height <= 0) {
       alert("Todos los campos deben ser completados correctamente.");
       return;
