@@ -36,7 +36,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run Jest tests
-        run: npm test
+        run: npm run test
         env:
           CI: true
 
