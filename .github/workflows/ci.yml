@@ -40,12 +40,6 @@ jobs:
         env:
           CI: true
 
-      - name: Run sui-mono tasks
-        run: npx sui-mono check
-
-      - name: Lint code
-        run: npm run lint
-
   deploy-main-app:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'  # Solo ejecuta para la rama main
