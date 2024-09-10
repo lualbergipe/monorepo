@@ -9,18 +9,29 @@ Este proyecto es un **monorepo** que contiene dos componentes principales:
 
 La estructura del proyecto sigue las convenciones de un monorepo organizado con Nx:
 
-├── apps/
-│   └── main-app/         # Aplicación principal construida en React
-├── PopupsProvider/
-│   └── src/ 
-        └── lib/          # Librería de componentes de Popup
-├── dist/                 # Carpeta de salida generada por el build
-├── nx.json               # Configuración de Nx
-├── package.json          # Dependencias y scripts del monorepo
-└── .github/
-│   └── ci.yml 
+|--------------------------|--------------------------------------------------------------------------------|
+| **Ruta**                | **Descripción**                                                                 |
+|--------------------------|--------------------------------------------------------------------------------|
+| `apps/main-app/`         | Contiene la aplicación principal de React.                                     |
+| `PopupsProvider/src/libs`| Contiene la librería de componentes de popups.                                 |
+| `dist/`                  | Carpeta generada después de correr el comando de build.                        |
+| `nx.json`                | Archivo de configuración para Nx, que gestiona los proyectos en el monorepo.   |
+| `package.json`           | Archivo que maneja las dependencias y los scripts del proyecto.                |
+| `.github/ci.yml`         | Configuración de GitHub Actions para integración continua.                     |
+|--------------------------|--------------------------------------------------------------------------------|
 
-               # Pipeline de CI/CD con GitHub Actions
+## Hooks personalizados
+
+# usePopup - Hook para gestión de popups
+Este hook personalizado es el núcleo de la gestión de popups en la aplicación. Permite agregar popups con características como título, descripción y posiciones por defecto, o personalizadas. Es utilizado tanto en la aplicación principal como en la librería de componentes PopupsProvider y encapsula todos los metodos de nuestro estado global facilitando asi el llamado, la gestión y el rendimiento de la aplicación.
+
+# useResizeObserver - Hook para gestionar el tamaño de los popups
+El hook useResizeObserver permite observar cambios en el tamaño de un elemento HTML y devuelve el ancho y la altura actuales del elemento observado. Es útil para ajustar el tamaño de los popups en tiempo real cuando la ventana del navegador cambia de tamaño o cuando el contenido del popup se modifica dinámicamente.
+
+## Estado global con Zustand
+El hook usePopupStore utiliza Zustand para gestionar el estado global de los popups en la aplicación. Gracias a Zustand, podemos manejar los popups a través de acciones como agregar, eliminar, mover y traer al frente (bring to front). Esto asegura que el estado de los popups sea consistente y accesible desde cualquier parte de la aplicación.
+
+# Pipeline de CI/CD con GitHub Actions
 
 ## Scripts disponibles
 
