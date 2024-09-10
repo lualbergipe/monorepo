@@ -2,7 +2,6 @@ import React, {useState, FormEvent} from 'react'
 import style from './Modal.module.css'
 import { ModalFormProps } from '@apps/main-app/types/types';
 
-
 const ModalForm = ({ isOpen, onClose, onSubmit }:ModalFormProps) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
