@@ -53,22 +53,7 @@ Compila la aplicación principal **Main App**.
 Cada vez que se realiza un **commit** y **push** en la rama `dev` y afecta los archivos dentro de `PopupsProvider`, se ejecutan las pruebas unitarias de **Jest**, en primera instancia se ejecutan en la terminal cuando se hace el commit, esto gracias a **husky** y la configuracion de pre-commit, en segunda instancia cuando se hace el push se ejecutan nuevamente gracias a las actions de **git hub**
 
 ### Deploy Main App
-Cada vez que se realiza un **push** a la rama `main`, si los archivos dentro de `apps/main-app` son afectados, se ejecuta el proceso de despliegue a **Vercel** utilizando las configuraciones establecidas en las actions de **git hub**
-
-## Configuración del deploy en Vercel
-
-Para realizar el despliegue en Vercel:
-
-1. Necesitas configurar los secretos en GitHub Actions, incluyendo `VERCEL_TOKEN`, `VERCEL_PROJECT_ID`, y `VERCEL_ORG_ID`.
-2. Configura el archivo `ci.yml` para que el despliegue solo se ejecute cuando los cambios afecten la aplicación principal en la rama `main`.
-
-### Configuración de variables de entorno
-
-Debes agregar las siguientes variables de entorno en tu repositorio o en las configuraciones de CI:
-
-- `VERCEL_TOKEN`: Token de acceso para desplegar en Vercel.
-- `VERCEL_PROJECT_ID`: ID del proyecto en Vercel.
-- `VERCEL_ORG_ID`: ID de la organización en Vercel.
+Cada vez que se realiza un **push** a la rama `main`, si los archivos dentro de `apps/main-app` son afectados, se ejecuta el proceso de despliegue a **Vercel** utilizando las configuraciones que ofrece la dashboard de vercel
 
 ## Requisitos previos
 

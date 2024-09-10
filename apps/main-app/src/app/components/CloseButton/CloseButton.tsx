@@ -35,4 +35,5 @@ const AnimatedButton = () => {
     </button>
   );
 };
+
 export default AnimatedButton;
