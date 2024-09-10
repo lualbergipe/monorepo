@@ -10,13 +10,18 @@ const ModalForm = ({ isOpen, onClose, onSubmit }:ModalFormProps) => {
   const [y, setY] = useState(0);
   const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(100);
+  const [showToast, setShowToast] = useState(false);
+
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!title.trim() || !description.trim() || x <= 0 || y <= 0 || width <= 0 || height <= 0) {
-      alert("Todos los campos deben ser completados correctamente.");
+      setShowToast(true)
+      setTimeout(() => {
+        setShowToast(false)
+    }, 3000);
       return;
     }
     onSubmit(title, description, { x, y, width, height });
@@ -69,7 +74,11 @@ const ModalForm = ({ isOpen, onClose, onSubmit }:ModalFormProps) => {
           <span>{height}px</span>
         </label>
      </div>
-
+     {showToast &&
+      <div className={style.toast__alert}>
+        <span className={style.toast__alert_message}>Todos los campos deben ser completados correctamente.</span>
+        </div>
+      }
       <button className={style.btn__popup} type="submit">Crear popup</button>
     </form>
   </div>

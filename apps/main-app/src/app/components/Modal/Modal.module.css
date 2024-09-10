@@ -124,3 +124,35 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   border: none;
   cursor: pointer;
 }
+.toast__alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #011952;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeInOut 3s ease forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
