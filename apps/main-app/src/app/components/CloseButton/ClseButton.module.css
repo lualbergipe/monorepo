@@ -145,11 +145,9 @@
   height: 120%;
   background: #ffffff;
 }
-
 .button_del.animating {
   opacity: 0.75;
 }
-
 .button_del.animating .button_text::before {
   content: "Cerrando ...";
 }
