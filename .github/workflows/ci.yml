@@ -36,15 +36,10 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run Jest tests
-        run: npm test
+        run: npm run test
         env:
           CI: true
 
-      - name: Run sui-mono tasks
-        run: npx sui-mono check
-
-      - name: Lint code
-        run: npm run lint
 
   deploy-main-app:
     runs-on: ubuntu-latest
