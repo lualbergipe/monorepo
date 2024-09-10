@@ -15,5 +15,10 @@
       "dest": "../../dist/apps/main-app/$1"
     }
   ],
-  "outputDirectory": "../../dist/apps/main-app"
+  "outputDirectory": "../../dist/apps/main-app",
+  "github": {
+    "enabled": true,
+    "productionBranch": "main",
+    "deployments": false
+  }
 }
