@@ -52,6 +52,7 @@ Compila la aplicación principal **Main App**.
 ### Test Components
 Cada vez que se realiza un **commit** y **push** en la rama `dev` y afecta los archivos dentro de `PopupsProvider`, se ejecutan las pruebas unitarias de **Jest**, en primera instancia se ejecutan en la terminal cuando se hace el commit, esto gracias a **husky** y la configuracion de pre-commit, en segunda instancia cuando se hace el push se ejecutan nuevamente gracias a las actions de **git hub**
 
+
 ### Deploy Main App
 Cada vez que se realiza un **push** a la rama `main`, si los archivos dentro de `apps/main-app` son afectados, se ejecuta el proceso de despliegue a **Vercel** utilizando las configuraciones que ofrece la dashboard de vercel
 
