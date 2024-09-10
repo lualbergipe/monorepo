@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "/aps/main-app/src/main.tsx",
-      "use": "@vercel/node",
+      "src": "apps/main-app/package.json",
+      "use": "@vercel/static-build",
       "config": {
         "distDir": "dist/apps/main-app"
       }
@@ -11,8 +11,8 @@
   ],
   "routes": [
     {
-       "src": "/(.*)",
-      "dest": "/apps/main-app/$1"
+      "src": "/(.*)",
+      "dest": "/dist/apps/main-app/$1"
     }
   ],
   "outputDirectory": "dist/apps/main-app"
