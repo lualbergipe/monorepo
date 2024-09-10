@@ -14,6 +14,7 @@ const AnimatedButton = () => {
     }, 500);
   };
 
+
   return (
     <button
       onClick={handleAnimation}
