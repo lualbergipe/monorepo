@@ -1,4 +1,4 @@
-# Monorepo para Popup Management y Main App
+# Monorepo con aplicación React y libreria de componentes
 
 Este proyecto es un **monorepo** que contiene dos componentes principales:
 
