@@ -3,6 +3,7 @@ import style from './Footer.module.css'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
+
 const Footer = () => {
   return (
    <footer>
