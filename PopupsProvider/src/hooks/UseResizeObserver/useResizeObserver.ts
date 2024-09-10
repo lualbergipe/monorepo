@@ -15,7 +15,6 @@ export const useResizeObserver = (ref: RefObject<HTMLElement>): Size => {
         const { width, height } = entries[0].contentRect;
         setSize({ width, height });
       });
-
       observer.observe(ref.current);
 
       return () => observer.disconnect();
