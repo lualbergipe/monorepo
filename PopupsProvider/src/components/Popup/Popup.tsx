@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect} from 'react';
+import React, {memo, Suspense, useCallback, useEffect} from 'react';
 import Draggable, {DraggableEventHandler} from 'react-draggable';
 import style from './Popup.module.css'
 import { IoClose } from "react-icons/io5";
@@ -40,7 +40,7 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
     }
   }, [movePopup]);
   return (
-      <>
+    <Suspense fallback={<div>Cargando popup...</div>}>
       {popups.map(popup => (
         <Draggable
           key={popup.id}
@@ -70,7 +70,7 @@ export const Popup = memo(({ containerSize }: PopupProps) => {
           </div>
         </Draggable>
       ))}
-      </>
+      </Suspense>
   );
 }) ;
 export default { Popup };

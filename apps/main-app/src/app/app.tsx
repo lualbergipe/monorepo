@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from 'react';
+import React, { Suspense } from 'react';
 import {useState, useRef} from 'react';
 import style from './app.module.css'
 import Modal from './components/Modal/Modal';
@@ -47,7 +47,9 @@ export function App() {
           />
           <button className={style.btn__popup} onClick={openModal}>Popup personalizado</button>
         </div>
-        <Popup containerSize={containerSize}/>
+        <Suspense fallback={<div>Cargando popups...</div>}>
+            <Popup containerSize={containerSize} />
+          </Suspense>
         <Modal isOpen={modalIsOpen} onClose={closeModal}>
           <ModalForm isOpen={modalIsOpen} onClose={closeModal} onSubmit={handleFormSubmit}/>
         </Modal>
