@@ -35,16 +35,12 @@ export function App() {
       <div className={style.container}>
       <div ref={containerRef} className={style.container__popup}>
         <div className={style.container__btn} style={{flexDirection: containerSize && containerSize.width < 410 ? 'column' : 'row'}}>
-        <PopupButtonA
-            title="Popup A"
-            description="Tarea del boton A"
-            defaultPosition={{ x: 50, y: 50, width: 200, height: 150 }}
-          />
-        <PopupButtonB
-            title="Popup B"
-             description="Tarea del boton B"
-            defaultPosition={{ x: 100, y: 100, width: 350, height: 200 }}
-          />
+        <PopupButtonA defaultPosition={{ x: 50, y: 50, width: 200, height: 150 }}>
+            Abrir Popup A
+          </PopupButtonA>
+          <PopupButtonB defaultPosition={{ x: 100, y: 100, width: 350, height: 200 }}>
+            Abrir Popup B
+          </PopupButtonB>
           <button className={style.btn__popup} onClick={openModal}>Popup personalizado</button>
         </div>
         <Suspense fallback={<div>Cargando popups...</div>}>

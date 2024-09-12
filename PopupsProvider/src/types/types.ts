@@ -1,7 +1,5 @@
 export interface PopupButtonProps {
   id: string;
-  title: string;
-  description: string;
   defaultPosition: {
     x: number;
     y: number;
